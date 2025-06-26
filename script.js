@@ -80,15 +80,16 @@ window.addEventListener('DOMContentLoaded', function() {
   const canvas = document.getElementById('raceGame');
   if (!canvas) return; // Solo ejecuta si existe el canvas
   const ctx = canvas.getContext('2d');
-  const carImg = new Image();
-  carImg.src = 'https://cdn-icons-png.flaticon.com/512/743/743922.png'; // Imagen del carro racing
+  // Imagen SVG de una persona con traje de carrera y casco morado (como DataURL)
+  const racerImg = new Image();
+  racerImg.src = 'data:image/svg+xml;utf8,<svg width="48" height="32" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><g><ellipse cx="24" cy="28" rx="12" ry="4" fill="%23232323" opacity="0.25"/><g><circle cx="24" cy="16" r="10" fill="%236C0BA9" stroke="%23000" stroke-width="2"/><ellipse cx="24" cy="13" rx="6" ry="4" fill="%23fff" stroke="%23000" stroke-width="1.5"/><ellipse cx="24" cy="13" rx="4" ry="2.5" fill="%234e2a7f" opacity="0.7"/><rect x="18" y="20" width="12" height="7" rx="4" fill="%236C0BA9" stroke="%23000" stroke-width="2"/><rect x="21" y="23" width="6" height="3" rx="1.5" fill="%23fff" opacity="0.7"/><rect x="13" y="18" width="4" height="10" rx="2" fill="%236C0BA9" stroke="%23000" stroke-width="1.5"/><rect x="31" y="18" width="4" height="10" rx="2" fill="%236C0BA9" stroke="%23000" stroke-width="1.5"/></g></g></svg>';
   let carY = 70, carVY = 0, gravity = 0.7, jump = -10;
   let obstacles = [], frame = 0, score = 0, gameOver = false;
 
-  // Dibuja el carro en el canvas
+  // Dibuja la personita con casco morado en el canvas
   function drawCar() {
     ctx.save();
-    ctx.drawImage(carImg, 30, carY, 48, 32);
+    ctx.drawImage(racerImg, 30, carY, 48, 32);
     ctx.restore();
   }
   // Dibuja los obstáculos (barreras moradas)
@@ -155,7 +156,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
   // Inicia el juego cuando la imagen del carro está cargada
-  carImg.onload = () => loop();
+  racerImg.onload = () => loop();
   // Control de salto y reinicio
   document.addEventListener('keydown', function(e) {
     if (e.code === 'Space' && carY >= 70 && !gameOver) {
