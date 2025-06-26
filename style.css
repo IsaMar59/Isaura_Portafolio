@@ -1,0 +1,446 @@
+/* ====== Variables de color y fuentes globales ====== */
+:root {
+  --morado: #6C0BA9; /* Color principal morado */
+  --blanco: #fff; /* Blanco puro */
+  --negro: #18181b; /* Negro para textos */
+  --gris-metal: #bfc0c0; /* Gris metálico */
+  --negro-brillante: #232323; /* Negro brillante para fondos */
+  --acento: #a259f7; /* Color de acento */
+  --fuente-principal: 'Montserrat', 'Rajdhani', Arial, sans-serif; /* Fuentes principales */
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-principal); /* Fuente global */
+  background: var(--blanco); /* Fondo blanco */
+  color: var(--negro); /* Texto negro */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ====== Navbar: barra de navegación superior ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, var(--negro-brillante) 60%, var(--morado) 100%); /* Fondo racing */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(108,11,169,0.08); /* Sombra sutil */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--morado);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px var(--acento); /* Efecto glow */
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s; /* Transición racing */
+}
+.nav-links a.active, .nav-links a:hover {
+  background: var(--morado);
+  color: var(--blanco);
+  box-shadow: 0 0 12px var(--acento); /* Glow al pasar el mouse */
+}
+
+/* ====== Hero Section (Inicio) ====== */
+.hero-section {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--negro-brillante); /* Fondo racing */
+}
+.speed-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, var(--morado) 0%, var(--negro-brillante) 100%);
+  opacity: 0.7;
+  z-index: 1;
+  /* Efecto pista desenfocada con imagen */
+  background-image: url('https://assets.goal.com/images/v3/blt8a3957d8c8c1501c/Spanish%20GP%20.jpg?auto=webp&format=pjpg&width=3840&quality=60');
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.7) grayscale(0.2);
+  animation: speedMove 8s linear infinite; /* Animación de movimiento */
+}
+@keyframes speedMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--blanco);
+}
+.main-title {
+  font-size: 4rem;
+  font-family: 'Rajdhani', 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  text-shadow: 0 4px 24px var(--morado), 0 1px 0 var(--gris-metal); /* Sombra racing */
+  margin-bottom: 0.5rem;
+}
+.slogan {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--acento);
+  text-shadow: 0 2px 8px var(--negro);
+}
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--gris-metal);
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px var(--negro-brillante);
+}
+.f1-photo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.f1-photo {
+  max-width: 420px;
+  width: 90%;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px var(--morado), 0 2px 8px var(--negro-brillante); /* Sombra racing */
+  border: 3px solid var(--acento);
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+}
+.f1-photo:hover {
+  transform: scale(1.04) skewX(-2deg);
+  box-shadow: 0 12px 48px var(--acento);
+}
+
+/* ====== About (Línea de tiempo tipo carrera) ====== */
+.about-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--blanco);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(108,11,169,0.08);
+}
+.race-timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  border-left: 4px dashed var(--morado); /* Línea de carrera */
+}
+.pit-stop {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.pit-icon {
+  font-size: 2.2rem;
+  margin-right: 1.2rem;
+  color: var(--morado);
+  background: var(--blanco);
+  border: 2px solid var(--acento);
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px var(--gris-metal);
+}
+.pit-content h3 {
+  margin: 0 0 0.2rem 0;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--negro-brillante);
+}
+.pit-content p {
+  margin: 0;
+  color: var(--negro);
+}
+.skills {
+  margin-top: 2rem;
+}
+.skills-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+.skill-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: var(--morado);
+  font-family: 'Rajdhani', sans-serif;
+}
+.skill-icon img {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+  filter: drop-shadow(0 2px 4px var(--acento)); /* Sombra racing en íconos */
+}
+
+/* ====== Proyectos (Tarjetas tipo auto) ====== */
+.projects-section {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background: linear-gradient(120deg, var(--blanco) 80%, var(--gris-metal) 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(108,11,169,0.10);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  cursor: pointer;
+}
+.project-card:hover {
+  transform: translateY(-10px) scale(1.04) skewX(-2deg);
+  box-shadow: 0 8px 32px var(--morado);
+  border: 2px solid var(--acento);
+}
+.car-number {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  font-size: 2.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--morado);
+  opacity: 0.15;
+  z-index: 0;
+}
+.car-body {
+  width: 100%;
+  height: 32px;
+  background: linear-gradient(90deg, var(--morado) 60%, var(--acento) 100%);
+  border-radius: 16px 16px 8px 8px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 12px var(--acento);
+  opacity: 0.7;
+}
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--blanco);
+  background: var(--morado);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px var(--acento);
+}
+.project-link:hover {
+  background: var(--acento);
+  box-shadow: 0 4px 16px var(--morado);
+  transform: scale(1.08) skewX(-3deg);
+}
+
+/* ====== Garage Tecnológico ====== */
+.technologies-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--blanco);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(108,11,169,0.08);
+}
+.garage {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.tool {
+  background: linear-gradient(120deg, var(--gris-metal) 60%, var(--blanco) 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px var(--negro-brillante);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tool:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 24px var(--morado);
+}
+.tool-icon {
+  font-size: 2.5rem;
+  color: var(--morado);
+  margin-bottom: 0.5rem;
+}
+.tool-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--negro-brillante);
+}
+
+/* ====== Contacto (Fondo nocturno y autos en movimiento) ====== */
+.contact-section {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--negro-brillante);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px var(--morado);
+  color: var(--blanco);
+  position: relative;
+  overflow: hidden;
+}
+.night-lights-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, #1a0033 60%, #6C0BA9 100%);
+  opacity: 0.7;
+  z-index: 1;
+}
+.moving-cars {
+  position: absolute;
+  bottom: 20px; left: 0; right: 0;
+  height: 40px;
+  background: repeating-linear-gradient(90deg, #fff 0 10px, transparent 10px 30px);
+  opacity: 0.15;
+  animation: carsMove 3s linear infinite;
+  z-index: 2;
+}
+@keyframes carsMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 200px; }
+}
+.contact-form {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form label {
+  font-weight: 600;
+  color: var(--acento);
+}
+.contact-form input, .contact-form textarea {
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  background: var(--gris-metal);
+  color: var(--negro-brillante);
+  resize: none;
+}
+.contact-form textarea {
+  min-height: 80px;
+}
+.traffic-light-btn {
+  background: linear-gradient(90deg, #ff0000 0%, #ffe600 50%, #00ff00 100%);
+  color: var(--negro-brillante);
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px var(--acento);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.traffic-light-btn:hover {
+  transform: scale(1.08) skewX(-3deg);
+  box-shadow: 0 4px 24px #ffe600;
+}
+
+/* ====== Efectos de velocidad y racing ====== */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--negro-brillante);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--morado);
+  border-radius: 8px;
+}
+
+/* ====== Estilos para el jueguito de carrera ====== */
+.race-game-container {
+  margin: 2.5rem auto 0 auto;
+  max-width: 400px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px var(--acento);
+  padding: 1.2rem 1rem 1.5rem 1rem;
+  text-align: center;
+  border: 2px dashed var(--morado); /* Borde racing */
+}
+.race-game-container h3 {
+  color: var(--morado);
+  font-family: 'Rajdhani', sans-serif;
+  margin-bottom: 0.5rem;
+}
+.game-instructions {
+  color: var(--negro-brillante);
+  font-size: 0.95rem;
+  margin-top: 0.7rem;
+  font-style: italic;
+}
+
+/* ====== Footer racing ====== */
+.footer {
+  background: linear-gradient(90deg, var(--negro-brillante) 60%, var(--morado) 100%);
+  color: var(--blanco);
+  padding: 1.2rem 0 1rem 0;
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 4px solid var(--acento);
+  box-shadow: 0 -2px 16px var(--morado);
+  font-family: 'Rajdhani', 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+.footer-flag {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  filter: drop-shadow(0 2px 4px var(--acento));
+}
+
+/* ====== Responsive: adaptabilidad a móviles ====== */
+@media (max-width: 900px) {
+  .navbar { flex-direction: column; gap: 1rem; }
+  .about-section, .technologies-section, .contact-section { padding: 1rem; }
+  .main-title { font-size: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .garage { flex-direction: column; gap: 1rem; }
+  .main-title { font-size: 2rem; }
+  .navbar { padding: 0.5rem 1rem; }
+}

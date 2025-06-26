@@ -1,0 +1,52 @@
+<!-- Documento principal del portafolio personal inspirado en Fórmula 1 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos y enlaces a fuentes y estilos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isaura Ríos | Portafolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Rajdhani:700,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Barra de navegación principal -->
+  <nav class="navbar">
+    <div class="logo">IR</div> <!-- Logo con iniciales -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Inicio</a></li> <!-- Enlace a inicio -->
+      <li><a href="about.html">Sobre mí</a></li> <!-- Enlace a sobre mí -->
+      <li><a href="projects.html">Proyectos</a></li> <!-- Enlace a proyectos -->
+      <li><a href="technologies.html">Tecnologías</a></li> <!-- Enlace a tecnologías -->
+      <li><a href="contact.html">Contacto</a></li> <!-- Enlace a contacto -->
+    </ul>
+  </nav>
+  <!-- Sección principal tipo hero -->
+  <header class="hero-section">
+    <div class="speed-bg"></div> <!-- Fondo animado tipo pista desenfocada -->
+    <div class="hero-content">
+      <h1 class="main-title">Isaura Ríos</h1> <!-- Nombre principal -->
+      <p class="slogan">Impulsada por ideas, guiada por precisión</p> <!-- Eslogan -->
+      <h2 class="subtitle">Estudiante del Centro Súperate Fundación Alberto Motta</h2> <!-- Subtítulo académico -->
+      <div class="f1-photo-container">
+        <!-- Imagen de Fórmula 1 destacada -->
+        <img src="https://images.unsplash.com/photo-1707237892062-2e3e2e1e7092?auto=format&fit=crop&w=1200&q=80" alt="Fórmula 1" class="f1-photo">
+      </div>
+      <div class="race-game-container">
+        <h3>¡Juega y acelera tu mente!</h3> <!-- Título del juego -->
+        <canvas id="raceGame" width="340" height="120"></canvas> <!-- Canvas para el mini-juego de carrera -->
+        <p class="game-instructions">Presiona la barra espaciadora para saltar los obstáculos.</p> <!-- Instrucciones del juego -->
+      </div>
+    </div>
+  </header>
+  <!-- Footer racing presente en todas las páginas -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2025 Isaura Ríos. Inspirado en la velocidad y precisión de la Fórmula 1 y C55.</span> <!-- Créditos y dedicatoria -->
+      <span class="footer-flag">🏁</span> <!-- Icono de bandera a cuadros -->
+    </div>
+  </footer>
+  <!-- Script de animaciones y juego -->
+  <script src="script.js"></script>
+</body>
+</html>
